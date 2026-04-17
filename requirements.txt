@@ -1,0 +1,4 @@
+pefile>=2023.2.7
+pyyaml>=6.0
+rich>=13.0.0
+yara-python>=4.2.0
