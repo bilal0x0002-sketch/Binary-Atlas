@@ -162,10 +162,10 @@ Step 8: CONSOLE OUTPUT
 
 OUTPUT: Reports in output/ directory + console summary
 ---
-
-## Project Structure
-
 ```
+## Project Structure
+```
+---
 Binary-Atlas/
 ├── main.py                                   # Entry point
 ├── requirements.txt                          # Dependencies
@@ -224,10 +224,10 @@ Binary-Atlas/
 │
 ├── output/                                   # Generated reports
 └── results/                                  # Previous results
-```
-
 ---
 
+---
+```
 ## Installation & Setup
 
 ### Requirements
