@@ -4,20 +4,10 @@
 
 ![Python](https://img.shields.io/badge/python-3.8+-blue)
 ![Status](https://img.shields.io/badge/status-UNDER%20DEVELOPMENT-orange)
-![NOT%20PRODUCTION](https://img.shields.io/badge/NOT%20PRODUCTION%20READY-critical-red)
 ![License](https://img.shields.io/badge/license-MIT-gray)
 ![Platform](https://img.shields.io/badge/platform-Windows-blue)
 
 ---
-
-## CRITICAL DISCLAIMER & PROJECT STATUS
-
-```
-UNDER ACTIVE DEVELOPMENT - EXPECT BUGS AND BREAKING CHANGES  
-NOT SUITABLE FOR: Automated security decisions, incident response, or system deployment
-HIGH FALSE POSITIVE RATE - Includes incorrect flags on legitimate system binaries
-FOR LEARNING: Binary analysis, PE formats, static detection techniques
-```
 ---
 
 ## 📋 Table of Contents
