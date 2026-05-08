@@ -85,11 +85,11 @@ No machine learning, cloud integration, or sandboxing
 No comprehensive test suite or edge case coverage
 
 ### What This Tool IS Good For
+Learning PE file internals and static analysis fundamentals
+Research on malware detection techniques   
+Building and testing detection modules
+Prototyping security tools in controlled environments
 
-✅ Learning PE file internals and static analysis fundamentals
-✅ Research on malware detection techniques  
-✅ Building and testing detection modules
-✅ Prototyping security tools in controlled environments
 ---
 
 ## How It Works
