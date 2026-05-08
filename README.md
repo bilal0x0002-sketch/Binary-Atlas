@@ -55,11 +55,10 @@ Analysis Characteristics:
 ## Project Status & Limitations
 
 ### Current Status: UNDER DEVELOPMENT
-
-PE Parsing — Stable and functional
-Detection Modules (14) — Under refinement and tuning
-Report Generation — Fully operational
-YARA Scanning — Requires rule optimization for accuracy
+- PE Parsing — Stable and functional  
+- Detection Modules (14) — Under refinement and tuning  
+- Report Generation — Fully operational  
+- YARA Scanning — Requires rule optimization for accuracy
 
 ### Known Limitations
 
@@ -76,7 +75,10 @@ No machine learning, cloud integration, or sandboxing
 No comprehensive test suite or edge case coverage
 
 ### What This Tool IS Good For
-Learning PE file internals and static analysis fundamental,Research on malware detection techniques,Building and testing detection modules and Prototyping security tools in controlled environments
+-Learning PE file internals and static analysis fundamental
+-Research on malware detection techniques
+-Building and testing detection modules
+-Prototyping security tools in controlled environments
 
 ---
 
