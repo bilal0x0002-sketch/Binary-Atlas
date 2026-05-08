@@ -56,10 +56,10 @@ Analysis Characteristics:
 
 ### Current Status: UNDER DEVELOPMENT
 
-| PE Parsing | ✅ Working |
-| Detectors (14) | 🟡 Needs refinement |
-| Report Generation | ✅ Working |
-| YARA Scanning | 🟡 Rules need improvement |
+PE Parsing — Stable and functional
+Detection Modules (14) — Under refinement and tuning
+Report Generation — Fully operational
+YARA Scanning — Requires rule optimization for accuracy
 
 ### Known Limitations
 
