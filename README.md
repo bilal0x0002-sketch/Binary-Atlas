@@ -66,29 +66,17 @@ Analysis Characteristics:
 #### 1. **High False Positive Rate**
 Stateless pattern matching without behavioral context
 
-#### 2. **No Execution Context**
-Can't distinguish between legitimate and malicious API usage
-
-#### 3. **Limited YARA Rule Quality**
+#### 2. **Limited YARA Rule Quality**
 Broad rules cause false positives on legitimate software
 
-#### 4. **Independent Detectors**
-14 modules work separately without cross-validation
-
-#### 5. **No Behavioral Verification**
-API/string presence ≠ actual execution or usage
-
-#### 6. **Missing Features**
+#### 3. **Missing Features**
 No machine learning, cloud integration, or sandboxing
 
-#### 7. **Incomplete Testing**
+#### 4. **Incomplete Testing**
 No comprehensive test suite or edge case coverage
 
 ### What This Tool IS Good For
-Learning PE file internals and static analysis fundamentals
-Research on malware detection techniques   
-Building and testing detection modules
-Prototyping security tools in controlled environments
+Learning PE file internals and static analysis fundamental,Research on malware detection techniques,Building and testing detection modules and Prototyping security tools in controlled environments
 
 ---
 
