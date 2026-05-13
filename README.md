@@ -63,55 +63,48 @@ pip install -r requirements.txt
 Need more help? Jump to Installation & Setup.
 
 </details>
-Table of Contents
-What It Finds
 
-Quick Start
+## Table of Contents
 
-Project Status & Limitations
+* [What It Finds](#what-it-finds)
+* [Quick Start](#quick-start)
+* [Project Status & Limitations](#project-status--limitations)
+* [Architecture Overview](#architecture-overview)
+* [Detection Modules (14 Engines)](#detection-modules-14-engines)
+* [How It Works](#how-it-works)
+* [Project Structure](#project-structure)
+* [Installation & Setup](#installation--setup)
+* [Usage Guide](#usage-guide)
+* [Configuration System](#configuration-system)
+* [Output & Reports](#output--reports)
+* [False Positive Philosophy](#false-positive-philosophy)
+* [Development Roadmap](#development-roadmap)
+* [Contributing](#contributing)
+* [FAQ](#faq)
 
-Architecture Overview
+---
 
-Detection Modules (14 Engines)
+## What It Finds
 
-How It Works
-
-Project Structure
-
-Installation & Setup
-
-Usage Guide
-
-Configuration System
-
-Output & Reports
-
-False Positive Philosophy
-
-Development Roadmap
-
-Contributing
-
-FAQ
-
-What It Finds
 Binary Atlas statically analyzes Windows PE executables (.exe, .dll, .sys, .bin) and extracts:
 
-Category	Details
-PE structure	Headers, sections, timestamps, resources
-Imports	DLL libraries & API functions
-Detection modules	Packers, shellcode, persistence, DLL/COM hijacking, anti‑analysis, overlay anomalies, import anomalies, high‑entropy strings, suspicious mutexes, and more
-YARA signatures	35+ community‑curated rules
-IOC extraction	IPs, domains, URLs, mutexes, file paths
-Threat classification	Weighted confidence score (0‑100%)
-Reports	Interactive HTML dashboard + plain‑text log, offline‑ready
-No code execution – fully offline – repeatable every time.
+| Category              | Details                                                                                                                                                    |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| PE structure          | Headers, sections, timestamps, resources                                                                                                                   |
+| Imports               | DLL libraries & API functions                                                                                                                              |
+| Detection modules     | Packers, shellcode, persistence, DLL/COM hijacking, anti-analysis, overlay anomalies, import anomalies, high-entropy strings, suspicious mutexes, and more |
+| YARA signatures       | 35+ community-curated rules                                                                                                                                |
+| IOC extraction        | IPs, domains, URLs, mutexes, file paths                                                                                                                    |
+| Threat classification | Weighted confidence score (0–100%)                                                                                                                         |
+| Reports               | Interactive HTML dashboard + plain-text log, offline-ready                                                                                                 |
 
-Quick Start
-If you have already installed the dependencies (see the Try it now section above), just run:
+No code execution — fully offline — repeatable every time.
+
+---
 
 ## Quick Start
-If you have already installed the dependencies (see the Try it now section above), just run:
+
+If you have already installed the dependencies, just run:
 
 ```bash
 python main.py path/to/your/file.exe
@@ -124,39 +117,70 @@ python main.py --directory ./samples
 python main.py --glob '*.exe'
 ```
 
+---
+
 ## Project Status & Limitations
 
 ### Current Status: UNDER DEVELOPMENT
-- PE Parsing — Stable and functional
-- Detection Modules (14) — Under refinement and tuning
-- Report Generation — Fully operational
-- YARA Scanning — Requires rule optimization for accuracy
+
+* PE Parsing — Stable and functional
+* Detection Modules (14) — Under refinement and tuning
+* Report Generation — Fully operational
+* YARA Scanning — Requires rule optimization for accuracy
 
 ### Known Limitations
-1. **Moderate False Positive Rate**  
-   Stateless pattern matching without behavioral context; confidence scores may vary (10–50%) even with multiple findings
 
-2. **Limited YARA Rule Quality**  
-   Broad rules may flag benign software; detection engines may return clean results even when modules are active
+1. **Moderate False Positive Rate**
+   Stateless pattern matching without behavioral context; confidence scores may vary (10–50%) even with multiple findings.
 
-3. **Missing Features**  
-   No machine learning, cloud integration, or sandboxing
+2. **Limited YARA Rule Quality**
+   Broad rules may flag benign software; detection engines may return clean results even when modules are active.
 
-4. **Incomplete Testing**  
-   No comprehensive test suite or edge case coverage
+3. **Missing Features**
+   No machine learning, cloud integration, or sandboxing.
 
-### What This Tool IS Good For
-- Learning PE file internals and static analysis fundamentals
-- Research on malware detection techniques
-- Building and testing detection modules
-- Prototyping security tools in controlled environments
+4. **Incomplete Testing**
+   No comprehensive test suite or edge case coverage.
+
+### What This Tool Is Good For
+
+* Learning PE file internals and static analysis fundamentals
+* Research on malware detection techniques
+* Building and testing detection modules
+* Prototyping security tools in controlled environments
+
+---
+
+## Architecture Overview
+
+The pipeline is organized into discovery, validation, parsing, detection, scoring, and reporting.
+
+---
+
+## Detection Modules (14 Engines)
+
+* Packer detection
+* Anti-analysis detection
+* Shellcode detection
+* Persistence detection
+* DLL hijacking detection
+* COM hijacking detection
+* Import anomaly detection
+* Overlay detection
+* String entropy analysis
+* Mutex detection
+* Resource analysis
+* YARA scanning
+* Threat classification
+* Compiler detection
 
 ---
 
 ## How It Works
 
 ### Analysis Flow
-```
+
+```text
 Step 1: FILE DISCOVERY
 ├─ Single file: samples/malware.exe
 ├─ Directory: python main.py -d ./samples
@@ -216,7 +240,8 @@ OUTPUT: Reports in output/ directory + console summary
 ---
 
 ## Project Structure
-```
+
+```text
 Binary-Atlas/
 ├── main.py                                   # Entry point
 ├── requirements.txt                          # Dependencies
@@ -283,13 +308,15 @@ Binary-Atlas/
 ## Installation & Setup
 
 ### Requirements
-- Python 3.8+
-- pefile ≥2023.2.7
-- pyyaml ≥6.0
-- rich ≥13.0.0
-- yara-python ≥4.2.0
+
+* Python 3.8+
+* pefile ≥ 2023.2.7
+* pyyaml ≥ 6.0
+* rich ≥ 13.0.0
+* yara-python ≥ 4.2.0
 
 ### Detailed Setup
+
 ```bash
 git clone https://github.com/bilal0x0002-sketch/binary-atlas.git
 cd binary-atlas
@@ -298,12 +325,17 @@ python -m venv .venv
 # source .venv/bin/activate   # Linux/Mac
 pip install -r requirements.txt
 python main.py --help
-YARA‑python may require a C compiler. If you encounter issues, see the Quick Start collapsible or open a GitHub issue.
+```
+
+YARA-python may require a C compiler. If you encounter issues, see the Quick Start section or open a GitHub issue.
+
+---
 
 ## Usage Guide
 
 ### Command-Line Reference
-```
+
+```text
 usage: Binary Atlas [-h] [--directory DIR] [--glob PATTERN]
                    [--verbose] [--output DIR] [--timeout SEC]
                    [--no-hash]
@@ -319,10 +351,11 @@ Optional:
   -v, --verbose           Verbose output
   -o, --output DIR        Output directory
   -t, --timeout SEC       Per-file timeout
-  --no-hash              Skip hashing
+  --no-hash               Skip hashing
 ```
 
 ### Usage Examples
+
 ```bash
 # Single file
 python main.py malware.exe
@@ -337,14 +370,18 @@ python main.py --glob '*.exe'
 python main.py ./samples --no-hash --verbose
 ```
 
+---
+
 ## Configuration System
+
 Binary Atlas uses 22 Python configuration files to control behavior.
 
 Edit `config/` files to customize:
-- Detection thresholds
-- Packer signatures
-- API patterns
-- Scoring weights
+
+* Detection thresholds
+* Packer signatures
+* API patterns
+* Scoring weights
 
 Example customization in `config/packer_config.py`:
 
@@ -357,33 +394,42 @@ PACKER_CONFIG = {
 }
 ```
 
+---
+
 ## Output & Reports
 
 ### Report Files
+
 After analysis, find in `output/`:
-- `.html` — Interactive HTML report
-- `.txt` — Plain text archive version
+
+* `.html` — Interactive HTML report
+* `.txt` — Plain text archive version
 
 ### Report Contents
-- Binary metadata (name, size, timestamps)
-- File hashes (MD5, SHA256)
-- Detailed findings with evidence
-- IOC extraction
-- Confidence scores
-- Recommendations
+
+* Binary metadata (name, size, timestamps)
+* File hashes (MD5, SHA256)
+* Detailed findings with evidence
+* IOC extraction
+* Confidence scores
+* Recommendations
 
 ### Output Examples
-- PE Headers & Optional Headers
-- File Identification & Execution Context
-- Section Analysis
-- Section Analysis Console Output
-- Timestamps & Security Flags
-- Imported DLL Functions
-- Anti-Analysis & Persistence Detection
-- Overlay Analysis
-- Example Analysis Output
+
+* PE Headers & Optional Headers
+* File Identification & Execution Context
+* Section Analysis
+* Section Analysis Console Output
+* Timestamps & Security Flags
+* Imported DLL Functions
+* Anti-Analysis & Persistence Detection
+* Overlay Analysis
+* Example Analysis Output
+
+---
 
 ## False Positive Philosophy
+
 Binary Atlas uses heuristic pattern matching without behavioral context or dynamic analysis. It can flag both legitimate and malicious behaviors — use it for learning, research, and understanding detection reasoning.
 
 **Important**: Some detection modules may return "[OK] clean" results even when other modules trigger. This is expected behavior reflecting the limitations of static analysis. Confidence scores (10–50%+) indicate uncertainty levels, not accuracy guarantees.
@@ -393,6 +439,7 @@ For production triage, always confirm with professional AV/EDR. This tool priori
 ---
 
 ## Development Roadmap
+
 **In Progress:** Unified scoring, false positive reduction, YARA improvements
 
 **Not Planned:** Sandboxing, network monitoring
@@ -400,49 +447,50 @@ For production triage, always confirm with professional AV/EDR. This tool priori
 ---
 
 ## Contributing
-Welcome contributions: bug fixes, rule improvements, documentation
+
+Welcome contributions: bug fixes, rule improvements, documentation.
 
 ---
 
 ## FAQ
 
-**Q: Can I use this in production?**  
-A: Binary Atlas is built for learning and research — not as a drop‑in replacement for production‑grade EDR systems. Use a dedicated security solution for live environments.
+**Q: Can I use this in production?**
+A: Binary Atlas is built for learning and research — not as a drop-in replacement for production-grade EDR systems. Use a dedicated security solution for live environments.
 
-**Q: Can it execute or sandbox files?**  
+**Q: Can it execute or sandbox files?**
 A: No. Static analysis only — no code execution.
 
-**Q: Why so many false positives?**  
+**Q: Why so many false positives?**
 A: Pattern matching without behavioral context. Professional tools are heavily tuned; this demonstrates detection challenges.
 
-**Q: What if results disagree with my antivirus?**  
-A: Use Binary Atlas for analysis and insight; rely on your antivirus/EDR for production decisions. (Even professional tools can occasionally false flag.)
+**Q: What if results disagree with my antivirus?**
+A: Use Binary Atlas for analysis and insight; rely on your antivirus/EDR for production decisions. Even professional tools can occasionally false flag.
 
-**Q: Can it analyze packed binaries?**  
-A: Detects high-entropy indicators (sections with entropy >7.5) but packing detection is not fully reliable. Packed content analysis is limited. Manual unpacking may be needed.
+**Q: Can it analyze packed binaries?**
+A: Detects high-entropy indicators (sections with entropy > 7.5) but packing detection is not fully reliable. Packed content analysis is limited. Manual unpacking may be needed.
 
-**Q: How do I customize detections?**  
+**Q: How do I customize detections?**
 A: Edit the 22 config files in `config/` directory.
 
-**Q: Where are reports saved?**  
+**Q: Where are reports saved?**
 A: Default: `output/` directory. Use `--output` for custom location.
 
-**Q: Can I batch process files?**  
+**Q: Can I batch process files?**
 A: Yes, use `--directory` or `--glob` options.
 
-**Q: Why is analysis slow?**  
+**Q: Why is analysis slow?**
 A: Use `--no-hash` to skip hashing. Adjust `--timeout` if needed.
 
-**Q: Can I modify YARA rules?**  
+**Q: Can I modify YARA rules?**
 A: Yes, edit files in `samples/yara_rules/` directory.
 
 ---
 
 ## License
+
 MIT License - See LICENSE file
 
 ---
 
 Last Updated: April 17, 2026 | Status: Under Active Development | NOT Production Ready
 
----
