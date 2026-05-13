@@ -17,7 +17,9 @@
 - Full HTML forensic report with IOCs (IPs, domains, mutexes)
 
 <br>
-![Binary Atlas Demo](report_demo.gif)
+
+<img width="1705" height="872" alt="ezgif-45aca80ca9d493d4" src="https://github.com/user-attachments/assets/adc1fa10-3ba5-4b74-8a9e-0f03069beb42" />
+
 
 *Clean HTML report: single dominant threat score, highlighted evidence, no clutter.*
 
