@@ -1,4 +1,4 @@
-# Binary Atlas — PE Malware Analysis Engine
+# Binary Atlas - PE Malware Analysis Engine
 
 > **Every verdict backed by evidence, not just a score.**  
 > Binary Atlas explains malicious decisions the way a reverse engineer would — not the way antivirus engines do.  
@@ -12,7 +12,7 @@
 <br>
 
   **Drop a PE file → get instant malware intelligence:**
-- Threat score (0–100%) with **evidence‑based reasoning** — *e.g. “DLL injection detected via suspicious API chain: VirtualAlloc → WriteProcessMemory → CreateRemoteThread”*  
+- Threat score (0–100%) with **evidence‑based reasoning** - *e.g. “DLL injection detected via suspicious API chain: VirtualAlloc → WriteProcessMemory → CreateRemoteThread”*  
 - Detected techniques (packers, persistence, shellcode, and more)  
 - Full HTML forensic report with IOCs (IPs, domains, mutexes)
 
@@ -37,7 +37,7 @@ Binary Atlas is designed to show you **exactly which behaviours triggered the al
 
 ---
 
-##  Try it now — one command
+##  Try it now - one command
 ```bash
 python main.py samples/benign_sample.exe
 ```
